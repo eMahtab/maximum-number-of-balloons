@@ -40,9 +40,8 @@ class Solution {
         int i = 0, match = 0;
         int index = text.indexOf(target.charAt(i));
         while(index != -1) {
-            string += Character.toString(target.charAt(i));
+            string += Character.toString(target.charAt(i++));
             text = text.substring(0, index) + text.substring(index+1);
-            i++;
             if(string.equals(target)) {
                    string = "";
                    match++; 
