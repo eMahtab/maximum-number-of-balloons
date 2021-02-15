@@ -38,21 +38,17 @@ class Solution {
         
         String string = "";
         int i = 0, match = 0;
-        
-        while(!string.equals(target)) {
-            int index = text.indexOf(target.charAt(i));
-            if(index == -1) {
-               return match;
-            } else {
-                string += Character.toString(target.charAt(i));
-                text = text.substring(0, index) + text.substring(index+1);
-                i++;
-                if(string.equals(target)) {
+        int index = text.indexOf(target.charAt(i));
+        while(index != -1) {
+            string += Character.toString(target.charAt(i));
+            text = text.substring(0, index) + text.substring(index+1);
+            i++;
+            if(string.equals(target)) {
                    string = "";
                    match++; 
                    i = 0; 
-                }
             }
+            index = text.indexOf(target.charAt(i));
         }
        return match; 
     }
